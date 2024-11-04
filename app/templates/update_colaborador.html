@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="updateMaterial">Editar Colaborador: {{ colaborador.nome }}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <form action="/update_colaborador/{{ colaborador.id }}" method="post">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" name="nome" id="nome"
+                                placeholder="Digite o nome do Colaborador" value="{{ colaborador.nome }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="apelido" class="form-label">Apelido</label>
+                            <input type="text" class="form-control" name="apelido" id="apelido"
+                                placeholder="Digite o apelido do Colaborador" value="{{ colaborador.apelido }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="text" class="form-control" name="telefone" id="telefone"
+                                placeholder="Digite o telefone do Colaborador" value="{{ colaborador.telefone }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lider" class="form-label">Lider</label>
+                            <input type="text" class="form-control" name="lider" id="lider"
+                                placeholder="Digite o lider do Colaborador" value="{{ colaborador.lider }}">
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-success" type="submit">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}

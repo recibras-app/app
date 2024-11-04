@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="updateMaterial">Editar Equipe: {{ equipe.nome }}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <form action="/update_equipe/{{ equipe.id }}" method="post">
+                        <div class="mb-3">
+                            <label for="sku" class="form-label">SKU</label>
+                            <input type="text" class="form-control" name="sku" id="sku"
+                                placeholder="Digite o codigo do Material" value="{{ equipe.sku }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lider" class="form-label">lider</label>
+                            <select class="form-select" aria-label="Selecione o Lider da Equipe" name="lider" id="lider">
+                                <option value="{{ equipe.lider }}" selected>{{ equipe.lider }}</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cor" class="form-label">Cor</label>
+                            <input type="color" class="form-control form-control-color" name="cor" id="cor" value="{{ equipe.cor }}" title="Escolha a cor da Equipe">
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-success" type="submit">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="updateMaterial">Editar Material: {{ material.nome }}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <form action="/update_material/{{ material.id }}" method="post">
+                        <div class="mb-3">
+                            <label for="sku" class="form-label">SKU</label>
+                            <input type="text" class="form-control" name="sku" id="sku"
+                                placeholder="Digite o codigo do Material" value="{{ material.sku }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" name="nome" id="nome"
+                                placeholder="Digite o nome do Matérial" value="{{ material.nome }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="valor" class="form-label">Valor</label>
+                            <input type=number step=0.01 class="form-control" name="valor" id="valor"
+                                placeholder="Digite o valor do Matérial" value="{{ '%0.2f' % material.valor|float }}">
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-success" type="submit">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}
