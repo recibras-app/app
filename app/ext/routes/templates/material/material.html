@@ -22,10 +22,10 @@
         <tr>
           <td>{{ m.sku }}</td>
           <td>{{ m.nome }}</td>
-          <td>{{ '%0.2f' % m.valor|float }}</td>
+          <td> '%0.2f' % m.valor|float </td>
           <td>
-            <a href="/update_material/{{ m.id }}">Editar</a> |
-            <a href="/delete_material/{{ m.id }}">Excluir</a>
+            <a href="/update/{{ m.id }}">Editar</a> |
+            <a href="/delete/{{ m.id }}">Excluir</a>
           </td>
         </tr>
         {% endfor %}  
@@ -44,7 +44,7 @@
       </div>
       <div class="modal-body">
         <div class="modal-body">
-          <form action="/create_material" method="post">
+          <form action="/create" method="post">
             <div class="mb-3">
               <label for="sku" class="form-label">SKU</label>
               <input type="text" class="form-control" name="sku" id="sku" placeholder="Digite o codigo do Material">

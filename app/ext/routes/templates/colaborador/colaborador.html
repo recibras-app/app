@@ -26,8 +26,8 @@
           <td>{{ c.nome }}</td>
           <td>{{ c.telefone }}</td>
           <td>
-            <a href="/update_colaborador/{{ c.id }}">Editar</a> |
-            <a href="/delete_colaborador/{{ c.id }}">Excluir</a>
+            <a href="/update/{{ c.id }}">Editar</a> |
+            <a href="/delete/{{ c.id }}">Excluir</a>
           </td>
         </tr>
         {% endfor %}  
@@ -46,7 +46,7 @@
       </div>
       <div class="modal-body">
         <div class="modal-body">
-          <form action="/create_colaborador" method="post">
+          <form action="/create" method="post">
             <div class="mb-3">
               <label for="nome" class="form-label">Nome</label>
               <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome do Colaborador:">

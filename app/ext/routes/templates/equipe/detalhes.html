@@ -36,7 +36,7 @@
                 <td>{{ c.apelido }}</td>
                 <td>{{ c.nome }}</td>
                 <td>
-                  <a href="/delete_colaborador/{{ c.id }}">Remover</a>
+                  <a href="/delete/{{ c.id }}">Remover</a>
                 </td>
               </tr>
               <!--{% endfor %}-->
@@ -57,7 +57,7 @@
       </div>
       <div class="modal-body">
         <div class="modal-body">
-          <form action="/create_equipe" method="post">
+          <form action="/create" method="post">
             <div class="mb-3">
               <label for="lider" class="form-label">Lider</label>
               <select class="form-select" aria-label="Selecione o Lider da Equipe" name="lider" id="lider">

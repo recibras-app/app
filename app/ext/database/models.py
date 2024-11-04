@@ -1,24 +1,7 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Integer, Float, String
+# -*- encoding: utf-8 -*-
 
+from app.ext.database import db
 
-from .ext.routes.dashboard import home
-from .ext.routes.colaborador import bp_colaborador
-from .ext.routes.material import bp_material
-from .ext.routes.equipe import bp_equipe
-
-app = Flask(__name__)
-
-app.register_blueprint(home)
-app.register_blueprint(bp_colaborador)
-app.register_blueprint(bp_material)
-app.register_blueprint(bp_equipe)
-
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-db = SQLAlchemy()
-db.init_app(app)
 
 class Colaborador(db.Model):
     __tablename__="colaborador"
@@ -63,6 +46,3 @@ class EquipeMembros(db.Model):
     id = db.Column("id", db.Integer, primary_key=True, autoincrement=True)
     equipe_id = db.Column(db.Integer, db.ForeignKey("equipe.id"))
     colaborador_id = db.Column(db.Integer, db.ForeignKey("colaborador.id"))
-
-with app.app_context():
-    db.create_all()
