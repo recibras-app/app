@@ -1,0 +1,33 @@
+[default]
+DEBUG = false
+EXTENSIONS = [
+    "app.ext.dashboard:init_app",
+    "app.ext.database:init_app",
+    "app.ext.modulos.colaborador:init_app",
+    "app.ext.modulos.equipe:init_app",
+    "app.ext.modulos.material:init_app",
+    "app.ext.cli:init_app",
+
+]
+
+[development]
+DEBUG = true
+SQLALCHEMY_DATABASE_URI = "sqlite:///database.db"
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+DEBUG_TB_TEMPLATE_EDITOR_ENABLED = true
+DEBUG_TB_PROFILER_ENABLED = true
+DEBUG_TB_INTERCEPT_REDIRECTS = false
+EXTENSIONS = [
+    "app.ext.dashboard:init_app",
+    "app.ext.database:init_app",
+    "app.ext.modulos.colaborador:init_app",
+    "app.ext.modulos.equipe:init_app",
+    "app.ext.modulos.material:init_app"
+    "app.ext.cli:init_app",
+    "app.ext.toolbar:init_app",
+]
+
+[production]
+DEBUG = false
+SQLALCHEMY_DATABASE_URI = "mysqlite:///..."
+SQLALCHEMY_TRACK_MODIFICATIONS = False

@@ -5,10 +5,21 @@ description = ""
 authors = ["fellipematos <box.fellipematos@gmail.com>"]
 readme = "README.md"
 
+
 [tool.poetry.dependencies]
 python = "^3.12"
 flask = "^3.0.3"
 flask-sqlalchemy = "^3.1.1"
+
+
+[tool.poetry.group.dev.dependencies]
+flask-debugtoolbar = "^0.16.0"
+black = "^24.10.0"
+flake8 = "^7.1.1"
+ipdb = "^0.13.13"
+ipython = "^8.29.0"
+isort = "^5.13.2"
+flask-shell-ipython = "^0.5.3"
 
 
 [build-system]

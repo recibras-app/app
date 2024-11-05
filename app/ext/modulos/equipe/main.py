@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, url_for
 
 
-bp_equipe = Blueprint("equipe", __name__, template_folder="templates/equipe")
+bp_equipe = Blueprint("equipe", __name__, template_folder="templates")
 
 @bp_equipe.route("/equipe")
 def index():

@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, url_for
 
-bp_colaborador = Blueprint("colaborador", __name__, template_folder="templates/colaborador")
+bp_colaborador = Blueprint("colaborador", __name__, template_folder="templates")
 
 @bp_colaborador.route("/colaborador")
 def index():
