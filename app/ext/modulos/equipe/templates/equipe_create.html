@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container">
+  <div>
+    <h4 id="createEquipe">Nova Equipe</h4>
+  </div>
+  <div>
+    <form action="/equipe/create" method="post">
+      <div class="mb-3">
+        <label for="sku" class="form-label">SKU</label>
+        <input type="text" class="form-control" name="sku" id="sku" placeholder="Digite o codigo do Equipe">
+      </div>
+      <div class="mb-3">
+        <label for="lider" class="form-label">Lider</label>
+        <select class="form-select" aria-label="Selecione o Lider da Equipe" name="lider" id="lider">
+          <option selected>Selecione o Lider da Equipe</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="cor" class="form-label">Cor</label>
+        <input type="color" class="form-control form-control-color" name="cor" id="cor" title="Escolha a cor da Equipe">
+      </div>
+      <div class="col-12">
+        <button class="btn btn-success" type="submit">Cadastrar</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock main %}
