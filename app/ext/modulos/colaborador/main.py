@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, url_for
+from app.ext.database import db
 
 bp_colaborador = Blueprint("colaborador", __name__, template_folder="templates")
 
