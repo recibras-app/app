@@ -7,7 +7,7 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h2 class="card-title">{{ equipe.lider }}</h2>
+          <h2 class="card-title">{{ equipe.colaborador_id }}</h2>
           <span class="card-text">{{ equipe.sku }}</span><BR>
         </div>
       </div>
@@ -18,64 +18,30 @@
     <div class="row g-0">
       <div class="col-md-8">
         <div class="card-body">
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_membro">
-            + Adicionar Membro
-          </button>
+          <a class="btn btn-primary" href="/equipe/{{ equipe.id }}/add" role="button">+ Adicionar Colaborador</a>
           <h2 class="card-title">Membros</h2>
           <table class="table table-striped table-hover">
             <thead>
               <tr>
-                <th scope="col">Apelido</th>
                 <th scope="col">Nome</th>
                 <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
-              <!--{% for c in colaborador %}-->
+              {% for m in membros %}
               <tr>
-                <td>{{ c.apelido }}</td>
-                <td>{{ c.nome }}</td>
+                <td>{{ m.colaborador_id }}</td>
                 <td>
-                  <a href="/equipe/delete/{{ c.id }}">Remover</a>
+                  <form action="/equipe/{{ m.id }}/remove" method="post">
+                    <button type="submit" class="btn-link">Remover</button>
+                </form>
                 </td>
               </tr>
-              <!--{% endfor %}-->
+              {% endfor %}
             </tbody>
           </table>
         </div>
       </div>
     </div>
   </div>
-
-<!-- MODAL CREATE -->
-<div class="modal fade" id="add_membro" tabindex="-1" aria-labelledby="add_membro" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 id="add_membro">Adicionar Membro</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="modal-body">
-          <form action="/create" method="post">
-            <div class="mb-3">
-              <label for="lider" class="form-label">Lider</label>
-              <select class="form-select" aria-label="Selecione o Lider da Equipe" name="lider" id="lider">
-                <option selected>Selecione um colaborador</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-            </div>
-            <div class="col-12">
-              <button class="btn btn-success" type="submit">Adicionar</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- END MODAL CREATE -->
-
 {% endblock main %}

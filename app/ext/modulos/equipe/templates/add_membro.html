@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container">
+  <div>
+    <h4 id="add_membro">Adicionar Membro</h4>
+  </div>
+  <div>
+    <form action="/equipe/{{ equipe.id }}/add" method="post">
+        <div class="mb-3">
+          <label for="lider" class="form-label">Colaborador</label>
+          <select class="form-select" aria-label="Selecione o Colaborador para a Equipe" name="colaborador_id" id="colaborador_id">
+            <option selected>Selecione um colaborador</option>
+            {% for m in membro %}
+            <option value="{{ m.nome }}">{{ m.nome }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-success" type="submit">Adicionar</button>
+        </div>
+      </form>
+  </div>
+</div>
+{% endblock main %}

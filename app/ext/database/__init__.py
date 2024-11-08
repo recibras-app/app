@@ -11,6 +11,9 @@ class Colaborador(db.Model):
     telefone = db.Column("telefone", db.String(16))
     lider = db.Column("lider", db.String(8))
 
+    equipe = db.relationship("Equipe", backref="colaborador")
+    equipemembros = db.relationship("EquipeMembros", backref="colaborador")
+
     def __init__(self, nome, apelido, telefone, lider):
         self.nome = nome
         self.apelido = apelido
@@ -21,19 +24,27 @@ class Equipe(db.Model):
     __tablename__="equipe"
     id = db.Column("id", db.Integer, primary_key=True, autoincrement=True)
     sku = db.Column("sku", db.String(40))
-    lider = db.Column(db.String(), db.ForeignKey("colaborador.id"))
     cor = db.Column("cor", db.String(10))
 
-    def __init__(self, sku, lider, cor):
+    colaborador_id = db.Column(db.Integer, db.ForeignKey("colaborador.id"))
+    
+    equipemembros = db.relationship("EquipeMembros", backref="equipe")
+
+    def __init__(self, sku, colaborador_id, cor):
         self.sku = sku
-        self.lider = lider
+        self.colaborador_id = colaborador_id
         self.cor = cor
 
 class EquipeMembros(db.Model):
     __tablename__="equipe_membros"
     id = db.Column("id", db.Integer, primary_key=True, autoincrement=True)
+
     equipe_id = db.Column(db.Integer, db.ForeignKey("equipe.id"))
     colaborador_id = db.Column(db.Integer, db.ForeignKey("colaborador.id"))
+
+    def __init__(self, equipe_id, colaborador_id):
+        self.equipe_id = equipe_id
+        self.colaborador_id = colaborador_id
 
 class Material(db.Model):
     __tablename__="material"
