@@ -4,7 +4,7 @@ from .ext import database
 from .ext import toolbar
 from .ext import dashboard
 
-from .ext.modulos import colaborador, equipe, material
+from .ext.modulos import colaborador, equipe, material, lancamento
 
 def create_app():
     app = Flask(__name__)
@@ -20,6 +20,7 @@ def create_app():
     colaborador.init_app(app)
     equipe.init_app(app)
     material.init_app(app)
+    lancamento.init_app(app)
 
     with app.app_context():
         database.db.create_all()

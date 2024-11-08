@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container">
+  <form action="" method="post">
+    <div class="columns pb-5">
+      <h3>EQUIPE</h3><BR>
+      {% for e in equipe %}
+      <input type="radio" class="btn-check" name="options-outlined" id="{{ e.sku }}" autocomplete="off">
+      <label class="btn btn-outline-primary" for="{{ e.sku }}">{{ e.colaborador_id }}</label>
+      {% endfor %}
+    </div>
+    <div class="columns pb-5">
+      <h3>MATERIAL</h3><BR>
+      {% for m in material %}
+      <input type="radio" class="btn-check" name="options-outlined2" id="{{ m.sku }}" autocomplete="off">
+      <label class="btn btn-outline-primary" for="{{ m.sku }}">{{ m.nome }}</label>
+      {% endfor %}
+    </div>
+    <div class="columns pb-5">
+      <h3>PESO</h3><BR>
+      <input type="number" id="" name="" min="100" max="5000" step="100" class="form-control-lg">
+    </div>
+  </form>
+</div>
+{% endblock main %}

@@ -29,6 +29,7 @@ class Equipe(db.Model):
     colaborador_id = db.Column(db.Integer, db.ForeignKey("colaborador.id"))
     
     equipemembros = db.relationship("EquipeMembros", backref="equipe")
+    lancamento_material = db.relationship("LancamentoMaterial", backref="equipe")
 
     def __init__(self, sku, colaborador_id, cor):
         self.sku = sku
@@ -53,10 +54,23 @@ class Material(db.Model):
     nome = db.Column("nome", db.String(150))
     valor = db.Column("custo", db.Float(5,2))
 
+    lancamento_material = db.relationship("LancamentoMaterial", backref="material")
+
     def __init__(self, sku, nome, valor):
         self.sku = sku
         self.nome = nome
         self.valor = valor
+
+class LancamentoMaterial(db.Model):
+    __tablename__="lancamento"
+    id = db.Column("id", db.Integer, primary_key=True, autoincrement=True)
+    peso = db.Column("peso", db.Integer())
+
+    equipe_id = db.Column(db.Integer, db.ForeignKey("equipe.id"))
+    material_id = db.Column(db.Integer, db.ForeignKey("material.id"))
+
+    def __init__(self, peso):
+        self.peso = peso
 
 def init_app(app):
     db.init_app(app)
